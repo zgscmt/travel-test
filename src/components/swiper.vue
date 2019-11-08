@@ -28,8 +28,9 @@ export default {
             this.$axios
                 .post("https://BackMiddle.chengdui.xyz/getBanner", params)
                 .then(res => {
-                    console.log(res);
-                    this.images = res.data.data.data;
+                   //console.log(res);
+                   let response=res.data;
+                    this.images = response.data.data;
                 });
         }
     }
