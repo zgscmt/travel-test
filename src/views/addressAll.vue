@@ -5,6 +5,7 @@
             <van-dropdown-item v-model="value" :options="option" @change="changeMessage()" />
             <van-dropdown-item v-model="value1" :options="option2"></van-dropdown-item>
         </van-dropdown-menu>
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <div class="address_content" v-for="(item,index) in addressAll" :key="index">
             <van-card :title="item.title" :thumb="item.imgs" @click="jumpaddress(item.title)">
                 <div slot="desc" style="margin-top:5px;">
@@ -38,8 +39,9 @@
                 <van-cell class="goroup" :title="item.description2" :value="item.money2" />
             </van-cell-group>
         </div>
+          </van-list>
         <!-- 分页 -->
-        <div class="pagination">
+       <!--  <div class="pagination">
             <van-pagination
                 style=" margin-top:10px;"
                 v-model="currentPage"
@@ -47,7 +49,8 @@
                 mode="simple"
                 @change="pagination"
             />
-        </div>
+        </div> -->
+       
     </div>
 </template>
 <script>
@@ -235,6 +238,9 @@ export default {
         }
     },
     methods: {
+         onLoad(){
+            
+        },
         onConfirm() {
             this.$refs.item.toggle();
         },
